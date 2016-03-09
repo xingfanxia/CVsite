@@ -3,8 +3,8 @@
 
 Project:	Vertica - Retina Ready Resume / CV & Portfolio
 Author:	Diego Pereira @ DotRex
-Version:	1.1
-Last change:	08/08/14 
+Version:	1.5
+Last change:	03/08/16 
 Primary use:	CV / Resume
 -------------------------------------------------------------------*/
 /*------------------------------------------------------------------
@@ -520,7 +520,6 @@ p {
 ! 8. Vertical Timeline
 ========================================================== */
 .timeline-wrap {
-  background: #249991;
   position: relative;
   z-index: 88;
 }
@@ -532,35 +531,41 @@ p {
 .timeline-bg {
   background: #fafafa;
 }
-@media (min-width:992px) {
-  .timeline-bg {
-    background: url('../img/timeline-bg.png') repeat-x center center fixed;
-  }
-}
 .bg1 {
   background: #fafafa;
 }
 .timeline-progress {
+  background: url('../img/timeline-bg.png') repeat-x center center fixed #249991;
+  position: relative;
+}
+.timeline-progress:before {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
   background: url('../img/progress-bar.png') repeat-y center;
   background-size: 400px 9px;
 }
-.timeline-point {
+.timeline-point:before {
   background: url('../img/progress-point.png') center center;
   background-size: 400px 500px;
 }
-.timeline-education {
+.timeline-education:before {
   background: url('../img/progress-education4.png') no-repeat center center;
   background-size: 400px 500px;
 }
-.timeline-work {
+.timeline-work:before {
   background: url('../img/progress-work3.png') no-repeat center center;
   background-size: 400px 500px;
 }
-.timeline-mail {
+.timeline-mail:before {
   background: url('../img/progress-mail3.png') no-repeat center center;
   background-size: 400px 500px;
 }
-.timeline-title {
+.timeline-title:before {
   background: url('../img/progress-section-title3.png') no-repeat center center;
   background-size: 400px 500px;
 }
@@ -914,8 +919,11 @@ textarea.form-control {
 /* ==========================================================
 ! 13. Section: Thank you
 ========================================================== */
-.line-thank-you {
-  height: 60px;
+.line-thank-you .timeline-point:before {
+  background-position: center 285px;
+}
+.line-thank-you .content-wrap {
+  height: 56px!important;
 }
 .thank-you {
   font-weight: 200;

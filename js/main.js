@@ -9,12 +9,12 @@ $(document).ready(function(){
   $("html").niceScroll({styler:"fb",cursorcolor:"#000"});
 
   //Side menu - Open
-  $('.side-menu-open').mouseenter(function(){
+  $('.side-menu-open').on('mouseenter', function () {
     $('.side-menu').animate({'left': '0px'}, 600, 'easeOutCubic');
   });
 
   //Side menu - Close
-  $('#side-menu-close').click(function(){
+  $('#side-menu-close').on('click', function () {
     var sideWidth = $('.side-menu').outerWidth();
     var sideWidthClose = '-' + sideWidth + 'px';
     $('.side-menu').animate({'left': sideWidthClose}, 600, 'easeOutCubic');
@@ -22,7 +22,7 @@ $(document).ready(function(){
   });
 
   //Smooth Scroll on anchor links
-  $('a[href*=#]:not([href=#])').click(function() {
+  $('a[href*=#]:not([href=#])').on('click', function () {
     if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
       var target = $(this.hash);
       target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
@@ -64,11 +64,14 @@ $(document).ready(function(){
   $('a.nivobox').nivoLightbox({ effect: 'fade' });
 
   //Portfolio Animations
-  $('.portfolio-item').hover(function(){
+  var portfolioItem = $('.portfolio-item');
+  portfolioItem.on('mouseenter', function () {
     $(this).find('.hover-bg-wrapper').fadeIn(200);
     $(this).find('.hover').show();  
     $(this).find('p').addClass('animated').addClass('fadeInUp');
-  }, function(){
+  });
+
+  portfolioItem.on('mouseleave', function () {
     $(this).find('.hover-bg-wrapper').fadeOut(200);
     $(this).find('.hover').fadeOut(200);
     $(this).find('p').removeClass('fadeInUp');
@@ -89,6 +92,7 @@ $(document).ready(function(){
         dataType: "json",
         success: function (data) {
           if (data.response == "success") {
+            $('#contactWait').hide();
             $("#contactSuccess").fadeIn(300);
             $("#contactError").addClass("hidden");
 
@@ -100,17 +104,20 @@ $(document).ready(function(){
               .removeClass("error");              
             
           } else {
+            $('#contactWait').hide();
             $("#contactError").fadeIn(300);
             $("#contactSuccess").addClass("hidden");
           }
+        },
+        beforeSend: function() {
+          $('#contactWait').fadeIn(200);
         }
-
       });
     }
   });
 
   //Modal for Contact Form
-  $('.modal-wrap').click(function(){
+  $('.modal-wrap').on('click', function () {
     $('.modal-wrap').fadeOut(300);
   });      
 

@@ -7,7 +7,7 @@ header('Content-type: application/json');
 require 'php-mailer/class.phpmailer.php';
 
 // Your email address
-$to = 'arthasxia1995@icloud.com';
+$to = 'you@domain.com';
 
 $subject = $_POST['subject'];
 
@@ -42,11 +42,12 @@ if($to) {
 	$mail->IsSMTP();                                      // Set mailer to use SMTP
 	
 	// Optional Settings
-	$mail->Host = 'smtp.mailgun.org';				  // Specify main and backup server
-	$mail->SMTPAuth = true;                             // Enable SMTP authentication
-	$mail->Username = 'postmaster@xiax.tech';             		  // SMTP username
-	$mail->Password = '109344426146987025d420aee97f4799';                         // SMTP password
-	$mail->SMTPSecure = 'tls';                          // Enable encryption, 'ssl' also accepted
+	//$mail->Host = 'mail.yourserver.com';				  // Specify main and backup server
+	//$mail->SMTPAuth = true;                             // Enable SMTP authentication
+	//$mail->Username = 'username';             		  // SMTP username
+	//$mail->Password = 'secret';                         // SMTP password
+	//$mail->Port       = 587;								// SMTP port
+	//$mail->SMTPSecure = 'tls';                          // Enable encryption, 'ssl' also accepted
 
 	$mail->From = $email;
 	$mail->FromName = $_POST['name'];
