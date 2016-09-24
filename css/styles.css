@@ -625,6 +625,7 @@ p {
 .graduation-description,
 .job-description {
   font-size: 13px;
+  margin-left: 20px;
 }
 .graduation-description p,
 .job-description p {
@@ -665,6 +666,26 @@ p {
   background: #3b658a;
 }
 .progress-bar-3 {
+  background: #ce5f5f;
+}
+.progress-bar-4 {
+  background: #249991;
+  width: 20%;
+}
+.progress-bar-5 {
+  background: #3b658a;
+}
+.progress-bar-6 {
+  background: #ce5f5f;
+}
+.progress-bar-7 {
+  background: #249991;
+  width: 20%;
+}
+.progress-bar-8 {
+  background: #3b658a;
+}
+.progress-bar-9 {
   background: #ce5f5f;
 }
 /* ==========================================================
